@@ -1,0 +1,55 @@
+<div class="profile-page">
+  <div class="row people">
+    <div class="col-sm-12 item">
+      <div class="box">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <img class="rounded-circle" [src]="user?.avatar_url" width="100">
+            <div class="profile-content">
+              <h5>{{user?.name}}</h5>
+              <p>{{user?.twitter_username}}</p>
+              <div>
+                <p>Los Angales, CA</p>
+                <p><a href="{{user?.blog}}">{{user?.blog}}</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-8">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-3 pb-2">
+                <div>
+                  <h2>{{user?.public_repos}}</h2>
+                  Public Repos
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3 pb-2">
+                <div>
+                  <h2>{{user?.public_gists}}</h2>
+                  Public Gists
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3 pb-2">
+                <div>
+                  <h2>{{user?.followers}}</h2>
+                  Followers
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3 pb-2">
+                <div>
+                  <h2>{{user?.following}}</h2>
+                  Following
+                </div>
+              </div>
+            </div>
+            <div class="profile-detail-content">
+              <p><b>Biography:</b>{{user?.bio}}</p>
+              <p><b>Company:</b>{{user?.company}}</p>
+              <p><b>Twitter:</b>{{user?.twitter_username}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button (click)="onNext(user.id)">Next</button> | <button (click)="onPrev(user.id)">Prev</button>
+    </div>
+  </div>
+</div>

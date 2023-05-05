@@ -1,0 +1,42 @@
+.profile-page {
+  background-color: #3B93F3;
+  padding: 50px 100px;
+
+  .people {
+    padding: 10px 0;
+  }
+
+  .item {
+    text-align: center;
+  }
+
+  .box {
+    text-align: center;
+    padding: 25px;
+    background-color: #fff;
+    margin-bottom: 50px;
+    border-radius: 10px;
+
+    .view-btn {
+      background-color: #0F61B2;
+      color: #fff;
+    }
+
+    .profile-detail-content {
+      text-align: start;
+      padding: 25px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .profile-page {
+    padding: 50px 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .profile-page {
+    padding: 25px 25px;
+  }
+}

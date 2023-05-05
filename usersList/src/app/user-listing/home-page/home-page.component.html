@@ -1,0 +1,7 @@
+<div class="home-page">
+  <div class="row people">
+    <div class="col-sm-12 col-md-6 col-lg-4 item" *ngFor="let item of userDetail">
+      <app-user-card [user]="item"></app-user-card>
+    </div>
+  </div>
+</div>

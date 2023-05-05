@@ -1,0 +1,24 @@
+.home-page {
+  background-color: #3B93F3;
+  padding: 50px 100px;
+
+  .people {
+    padding: 10px 0;
+  }
+
+  .item {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .home-page {
+    padding: 50px 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .home-page {
+    padding: 25px 25px;
+  }
+}
