@@ -6,10 +6,11 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  private readonly token = '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';
+private readonly token =  environment.access_token;
   constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {

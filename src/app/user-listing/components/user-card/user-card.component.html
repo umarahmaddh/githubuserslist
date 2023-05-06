@@ -1,0 +1,9 @@
+<div class="box"><img class="rounded-circle" [src]="userDetail.avatar_url" width="100">
+  <div class="py-2">
+    <h5 class="name">{{userDetail.name}}</h5>
+    <p class="">{{userDetail.login}}</p>
+  </div>
+  <div>
+    <button class="view-btn btn btn-priamry" (click)="onButtonClick(userDetail.id)">VIEW PROFILE</button>
+  </div>
+</div>

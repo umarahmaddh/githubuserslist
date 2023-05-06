@@ -9,28 +9,31 @@ import { UserListService } from 'src/app/Services/user-list.service';
 })
 export class ProfilePageComponent implements OnInit {
   userId: any = 0;
-  user: any;
+  user: any = {};
   users: any = []
   userDetail: any = []
-  globalIndex: any;
+  globalIndex: any = 0;
   constructor(private route: ActivatedRoute, private service: UserListService) {
 
   }
   ngOnInit(): void {
-    this.userId = this.route.snapshot.paramMap.get('id');
-    this.service.userList().subscribe((res: any) => {
-      this.users = res
-      const singleUser = this.users.find((element: any) => element.id == parseInt(this.userId));
-      this.service.userDetail(singleUser.url).subscribe(detailRes => {
-        this.user = detailRes;
+     this.route.queryParams.subscribe(params => {
+      console.log(params);
+      this.service.userList().subscribe((res: any) => {
+        this.users = res;
+        const singleUser = this.users.find((element: any) => element.id == parseInt(params['id']));
+        console.log("single user", singleUser);
+        this.service.userDetail(singleUser.login).subscribe(detailRes => {
+          this.user = detailRes;
+        })
       })
-    })
+    });    
   }
 
   onNext(id: number) {
     this.users.forEach((element: any, index: number) => {
       if (element.id == id) {
-        this.service.userDetail(this.users[index + 1].url).subscribe(detailRes => {
+        this.service.userDetail(this.users[index + 1].login).subscribe(detailRes => {
           this.user = detailRes;
           this.globalIndex = index + 1
         });
@@ -40,7 +43,7 @@ export class ProfilePageComponent implements OnInit {
   onPrev(id: number) {
     this.users.forEach((element: any, index: number) => {
       if (element.id == id) {
-        this.service.userDetail(this.users[index - 1].url).subscribe(detailRes => {
+        this.service.userDetail(this.users[index - 1].login).subscribe(detailRes => {
           this.user = detailRes;
           this.globalIndex = index - 1
         });

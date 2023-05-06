@@ -50,11 +50,12 @@
         </div>
       </div>
       <div class="nex-prev-btns">
-        <div [class.disable]="globalIndex == users.length-1" (click)="onNext(user.id)"><i
-            class="fa-solid fa-chevron-left"></i>&nbsp;&nbsp;Next</div>
-        &nbsp;|&nbsp;
-        <div [class.disable]="globalIndex == 0" (click)="onPrev(user.id)">Prev&nbsp;&nbsp;<i
-            class="fa-solid fa-chevron-right"></i></div>
+        <div [class.disable]="globalIndex == 0" (click)="onPrev(user.id)"><i
+          class="fa-solid fa-chevron-left"></i> Back </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        
+            <div [class.disable]="globalIndex == users.length-1" (click)="onNext(user.id)">Next <i
+              class="fa-solid fa-chevron-right"></i></div>
       </div>
     </div>
   </div>

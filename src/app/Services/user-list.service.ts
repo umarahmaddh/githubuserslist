@@ -7,16 +7,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserListService {
-  url = environment.baseUrl;
-  token = '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';
+  baseurl = environment.baseUrl;
   constructor(private http: HttpClient, private router: Router) {
 
   }
   userList() {
-    const urlWithToken = `${this.url}/users`;
-    return this.http.get(urlWithToken);
+    const url = `${this.baseurl}/users`;
+    return this.http.get(url);
   }
-  userDetail(userUrl: string) {
-    return this.http.get(userUrl);
+  userDetail(username: string) {
+    const url = `${this.baseurl}/users/${username}`;
+    return this.http.get(url);
   }
 }

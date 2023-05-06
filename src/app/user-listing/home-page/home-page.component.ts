@@ -10,15 +10,10 @@ export class HomePageComponent implements OnInit {
   constructor(private service: UserListService) {
   }
   users: any = []
-  userDetail: any = [];
   ngOnInit(): void {
     this.service.userList().subscribe(res => {
       this.users = res;
-      this.users.forEach((user: any) => {
-        this.service.userDetail(user.url).subscribe(detailRes => {
-          this.userDetail.push(detailRes)
-        })
-      });
+      
     })
   }
 }
