@@ -9,7 +9,7 @@
               <h5>{{user?.name}}</h5>
               <p>{{user?.twitter_username}}</p>
               <div>
-                <p>Los Angales, CA</p>
+                <!-- <p>Los Angales, CA</p> -->
                 <p><a href="{{user?.blog}}">{{user?.blog}}</a></p>
               </div>
             </div>
@@ -49,7 +49,13 @@
           </div>
         </div>
       </div>
-      <button (click)="onNext(user.id)">Next</button> | <button (click)="onPrev(user.id)">Prev</button>
+      <div class="nex-prev-btns">
+        <div [class.disable]="globalIndex == users.length-1" (click)="onNext(user.id)"><i
+            class="fa-solid fa-chevron-left"></i>&nbsp;&nbsp;Next</div>
+        &nbsp;|&nbsp;
+        <div [class.disable]="globalIndex == 0" (click)="onPrev(user.id)">Prev&nbsp;&nbsp;<i
+            class="fa-solid fa-chevron-right"></i></div>
+      </div>
     </div>
   </div>
 </div>

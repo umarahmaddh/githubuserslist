@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  private readonly token = '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';
+  private readonly token = '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';
   constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {

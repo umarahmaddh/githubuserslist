@@ -1,6 +1,7 @@
 .profile-page {
   background-color: #3B93F3;
   padding: 50px 100px;
+  min-height: 100vh;
 
   .people {
     padding: 10px 0;
@@ -8,6 +9,23 @@
 
   .item {
     text-align: center;
+  }
+
+  .nex-prev-btns {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .nex-prev-btns {
+    .disable {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    div {
+      cursor: pointer;
+    }
   }
 
   .box {

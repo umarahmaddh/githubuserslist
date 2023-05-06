@@ -12,6 +12,7 @@ export class ProfilePageComponent implements OnInit {
   user: any;
   users: any = []
   userDetail: any = []
+  globalIndex: any;
   constructor(private route: ActivatedRoute, private service: UserListService) {
 
   }
@@ -19,24 +20,31 @@ export class ProfilePageComponent implements OnInit {
     this.userId = this.route.snapshot.paramMap.get('id');
     this.service.userList().subscribe((res: any) => {
       this.users = res
-      console.log(this.users);
-      this.service.userDetail(this.users[this.userId].url).subscribe(detailRes => {
+      const singleUser = this.users.find((element: any) => element.id == parseInt(this.userId));
+      this.service.userDetail(singleUser.url).subscribe(detailRes => {
         this.user = detailRes;
-        console.log('single user', this.user);
       })
     })
   }
 
   onNext(id: number) {
-    // this.service.userDetail(this.users[id + 1].url).subscribe(detailRes => {
-    //   this.user = detailRes;
-    //   console.log('single user next', this.user);
-    // })
+    this.users.forEach((element: any, index: number) => {
+      if (element.id == id) {
+        this.service.userDetail(this.users[index + 1].url).subscribe(detailRes => {
+          this.user = detailRes;
+          this.globalIndex = index + 1
+        });
+      }
+    });
   }
   onPrev(id: number) {
-    // this.service.userDetail(this.users[id - 1].url).subscribe(detailRes => {
-    //   this.user = detailRes;
-    //   console.log('single user prev', this.user);
-    // })
+    this.users.forEach((element: any, index: number) => {
+      if (element.id == id) {
+        this.service.userDetail(this.users[index - 1].url).subscribe(detailRes => {
+          this.user = detailRes;
+          this.globalIndex = index - 1
+        });
+      }
+    });
   }
 }
